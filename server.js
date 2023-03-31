@@ -1,9 +1,11 @@
 import express from "express"
+import cors from "cors"
 import connectDatabase from "./db/connection.js"
 import { getGradientAll, createGradientOne, updateGradientCopies, removeGradientOne } from "./controllers/gradients.js"
 import { checkAuth } from "./middlewares/checkAuth.js"
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 connectDatabase()
 
