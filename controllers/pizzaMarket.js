@@ -5,8 +5,12 @@ import DrinkModel from '../db/models/pizzaMarket/drinks.js'
 
 export const getPizzaAll = async (req, res) => {
     try {
-        let data = await PizzaModel.find()
-        res.json(data)
+        const data = await PizzaModel.find()
+        const updated = data.map(element => {
+            const { _id: id, title, description, image, price } = element
+            return { id, title, description, image, price }
+        })
+        res.json(updated)
     } catch (err) {
         res.status(500).json({
             message: 'Не удалось загрузить пиццы.'
@@ -17,7 +21,11 @@ export const getPizzaAll = async (req, res) => {
 export const getSnackAll = async (req, res) => {
     try {
         let data = await SnackModel.find()
-        res.json(data)
+        const updated = data.map(element => {
+            const { _id: id, title, description, image, price } = element
+            return { id, title, description, image, price }
+        })
+        res.json(updated)
     } catch (err) {
         res.status(500).json({
             message: 'Не удалось загрузить закуски.'
@@ -28,7 +36,11 @@ export const getSnackAll = async (req, res) => {
 export const getDessertAll = async (req, res) => {
     try {
         let data = await DessertModel.find()
-        res.json(data)
+        const updated = data.map(element => {
+            const { _id: id, title, description, image, price } = element
+            return { id, title, description, image, price }
+        })
+        res.json(updated)
     } catch (err) {
         res.status(500).json({
             message: 'Не удалось загрузить десерты.'
@@ -39,7 +51,11 @@ export const getDessertAll = async (req, res) => {
 export const getDrinkAll = async (req, res) => {
     try {
         let data = await DrinkModel.find()
-        res.json(data)
+        const updated = data.map(element => {
+            const { _id: id, title, description, image, price } = element
+            return { id, title, description, image, price }
+        })
+        res.json(updated)
     } catch (err) {
         res.status(500).json({
             message: 'Не удалось загрузить напитки.'
