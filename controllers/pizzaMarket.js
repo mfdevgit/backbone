@@ -7,8 +7,8 @@ export const getPizzaAll = async (req, res) => {
     try {
         const data = await PizzaModel.find()
         const updated = data.map(element => {
-            const { _id: id, title, description, image, price } = element
-            return { id, title, description, image, price }
+            const { _id: id, ...rest } = element._doc
+            return { id, ...rest }
         })
         res.json(updated)
     } catch (err) {
@@ -22,8 +22,8 @@ export const getSnackAll = async (req, res) => {
     try {
         let data = await SnackModel.find()
         const updated = data.map(element => {
-            const { _id: id, title, description, image, price } = element
-            return { id, title, description, image, price }
+            const { _id: id, ...rest } = element._doc
+            return { id, ...rest }
         })
         res.json(updated)
     } catch (err) {
@@ -37,8 +37,8 @@ export const getDessertAll = async (req, res) => {
     try {
         let data = await DessertModel.find()
         const updated = data.map(element => {
-            const { _id: id, title, description, image, price } = element
-            return { id, title, description, image, price }
+            const { _id: id, ...rest } = element._doc
+            return { id, ...rest }
         })
         res.json(updated)
     } catch (err) {
@@ -52,8 +52,8 @@ export const getDrinkAll = async (req, res) => {
     try {
         let data = await DrinkModel.find()
         const updated = data.map(element => {
-            const { _id: id, title, description, image, price } = element
-            return { id, title, description, image, price }
+            const { _id: id, ...rest } = element._doc
+            return { id, ...rest }
         })
         res.json(updated)
     } catch (err) {
