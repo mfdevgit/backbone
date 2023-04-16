@@ -9,8 +9,8 @@ const DiscountSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    discount: {
-        type: Number,
+    type: {
+        type: Object,
         required: true
     }
 })

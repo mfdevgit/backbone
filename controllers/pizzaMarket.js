@@ -70,8 +70,8 @@ export const checkDiscount = async (req, res) => {
             const code = req.params.code.trim().toUpperCase()
             const data = await DiscountSchema.findOne({ name: code })
             if (data) {
-                const { description, discount } = data
-                res.status(200).json({ description, discount })
+                const { _id, ...rest } = data._doc
+                res.status(200).json({ ...rest })
             } else {
                 res.status(404).json({
                     message: 'Промокод не существует.'
