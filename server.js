@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import connectDatabase from './db/connection.js'
 import { getGradientAll, createGradientOne, updateGradientCopies, removeGradientOne } from './controllers/gradients.js'
-import { getPizzaAll, getSnackAll, getDessertAll, getDrinkAll } from './controllers/pizzaMarket.js'
+import { getPizzaAll, getSnackAll, getDessertAll, getDrinkAll, checkDiscount } from './controllers/pizzaMarket.js'
 import { checkAuth } from './middlewares/checkAuth.js'
 
 const app = express()
@@ -14,6 +14,7 @@ app.get('/pizza_market/pizzas', getPizzaAll)
 app.get('/pizza_market/snacks', getSnackAll)
 app.get('/pizza_market/desserts', getDessertAll)
 app.get('/pizza_market/drinks', getDrinkAll)
+app.get('/pizza_market/discounts/:code', checkDiscount)
 
 app.get('/', (req, res) => {
     res.status(200).send("I'm working, honey. Ask me later.")
