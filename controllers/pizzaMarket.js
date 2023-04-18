@@ -88,3 +88,30 @@ export const checkDiscount = async (req, res) => {
         })
     }
 }
+export const updateProductPopularity = async (req, res) => {
+    const { id, category } = req.body
+    try {
+        const regex = /^[a-zA-Z0-9]+$/
+        if (regex.test(req.body.id)) {
+            switch (category) {
+                case 'pizzas':
+                    await PizzaModel.updateOne({ _id: id }, { $inc: { popularity: 1 } })
+                    break
+                case 'snacks':
+                    await SnackModel.updateOne({ _id: id }, { $inc: { popularity: 1 } })
+                    break
+                case 'desserts':
+                    await DessertModel.updateOne({ _id: id }, { $inc: { popularity: 1 } })
+                    break
+                case 'drinks':
+                    await DrinkModel.updateOne({ _id: id }, { $inc: { popularity: 1 } })
+                    break
+            }
+            res.end()
+        }
+    } catch (err) {
+        res.status(500).json({
+            message: 'Ошибочка.'
+        })
+    }
+}

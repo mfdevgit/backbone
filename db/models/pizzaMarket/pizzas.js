@@ -13,6 +13,10 @@ const PizzaSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
+    popularity: {
+        type: Number,
+        default: 0
+    },
     image: {
         type: String,
         required: true
