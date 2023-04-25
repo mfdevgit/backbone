@@ -31,4 +31,4 @@ const SnackSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('Snack', SnackSchema, 'pizza_market_snacks')
+export default mongoose.model('Snack', SnackSchema, 'market_snacks')

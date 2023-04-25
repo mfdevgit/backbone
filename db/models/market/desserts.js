@@ -31,4 +31,4 @@ const DessertSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('Dessert', DessertSchema, 'pizza_market_desserts')
+export default mongoose.model('Dessert', DessertSchema, 'market_desserts')

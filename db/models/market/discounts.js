@@ -15,4 +15,4 @@ const DiscountSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('Discount', DiscountSchema, 'pizza_market_discounts')
+export default mongoose.model('Discount', DiscountSchema, 'market_discounts')

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const DrinkSchema = new mongoose.Schema({
+const PizzaSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -10,7 +10,7 @@ const DrinkSchema = new mongoose.Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: Array,
         required: true
     },
     popularity: {
@@ -20,15 +20,7 @@ const DrinkSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true
-    },
-    size: {
-        type: String,
-        required: true
-    },
-    macronutrients: {
-        type: Object,
-        required: true
     }
 })
 
-export default mongoose.model('Drink', DrinkSchema, 'pizza_market_drinks')
+export default mongoose.model('Pizza', PizzaSchema, 'market_pizzas')
