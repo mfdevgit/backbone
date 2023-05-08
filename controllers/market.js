@@ -43,7 +43,7 @@ export const checkDiscount = async (req, res) => {
         const regex = /^[a-zA-Z0-9]+$/
         if (regex.test(req.params.code)) {
             const code = req.params.code.trim().toUpperCase()
-            const data = await DiscountSchema.findOne({ name: code })
+            const data = await DiscountSchema.findOne({ promocode: code })
             if (data) {
                 const { _id, ...rest } = data._doc
                 res.status(200).json({ ...rest })
