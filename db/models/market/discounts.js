@@ -1,16 +1,24 @@
 import mongoose from 'mongoose'
 
 const DiscountSchema = new mongoose.Schema({
-    name: {
+    promocode: {
+        type: String,
+        required: true
+    },
+    fullname: {
         type: String,
         required: true
     },
     description: {
-        type: String,
+        type: Object,
         required: true
     },
     tech: {
         type: Object,
+        required: true
+    },
+    image: {
+        type: String,
         required: true
     }
 })
